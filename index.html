@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amy Yi Mei Li — Architecture Portfolio</title>
   <style>
-    /* Global Reset & Typography */
     :root {
       --bg-color: #fcfcfc;
       --card-bg: #ffffff;
@@ -31,7 +30,6 @@
       padding-top: 80px;
     }
 
-    /* Sticky Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -75,14 +73,12 @@
       color: var(--text-main);
     }
 
-    /* Container */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* Hero / Header Section */
     header.hero {
       padding: 80px 0 60px 0;
       border-bottom: 1px solid var(--border-color);
@@ -110,7 +106,6 @@
       max-width: 650px;
     }
 
-    /* Timeline Narrative Sections */
     .timeline {
       padding: 60px 0;
     }
@@ -123,4 +118,199 @@
       display: flex;
       align-items: baseline;
       gap: 16px;
-      margin
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    .year-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .year-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 220px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: #f0f0f0;
+      padding: 4px 10px;
+      border-radius: 20px;
+      color: #555;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header.hero h1 { font-size: 2rem; }
+      .year-header { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="brand">AMY YI MEI LI</a>
+    <ul>
+      <li><a href="#year1">Year 01</a></li>
+      <li><a href="#year2">Year 02</a></li>
+      <li><a href="#year3">Year 03</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <p class="tagline">DESIGN · SPACE · PLACE</p>
+      <h1>Exploring architecture through ideas, drawings and making.</h1>
+      <p class="bio">BA (Hons) Architecture | First-Class Honours | University of Portsmouth</p>
+    </header>
+
+    <main class="timeline">
+      
+      <section id="year1" class="year-block">
+        <div class="year-header">
+          <span class="year-number">01</span>
+          <span class="year-title">Year One — Foundations & Spatial Grammar</span>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="image-placeholder">Render / Model Image</div>
+            <div class="project-info">
+              <p class="project-meta">Project 01 · Hand Craft & Form</p>
+              <h3>Spatial Thresholds</h3>
+              <p>An exploration of abstract spatial volumes, light filtering, and physical joinery techniques.</p>
+              <div class="project-tags">
+                <span class="tag">Hand Sketching</span>
+                <span class="tag">Model Making</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="year2" class="year-block">
+        <div class="year-header">
+          <span class="year-number">02</span>
+          <span class="year-title">Year Two — Context, Site & Community</span>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="image-placeholder">Site Plan / Render</div>
+            <div class="project-info">
+              <p class="project-meta">Project 02 · Urban Intervention</p>
+              <h3>The Community Workshop</h3>
+              <p>A public-facing timber structure addressing local pedestrian movement and waterfront views.</p>
+              <div class="project-tags">
+                <span class="tag">Rhino</span>
+                <span class="tag">Site Analysis</span>
+                <span class="tag">AutoCAD</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="year3" class="year-block">
+        <div class="year-header">
+          <span class="year-number">03</span>
+          <span class="year-title">Year Three — Comprehensive Thesis & Tectonics</span>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="image-placeholder">Flagship Hero Image</div>
+            <div class="project-info">
+              <p class="project-meta">Project 03 · Final BA Thesis</p>
+              <h3>Adaptive Reuse Archive</h3>
+              <p>A comprehensive capstone project integrating historic retrofit strategies, detailed wall sections, and environmental design.</p>
+              <div class="project-tags">
+                <span class="tag">Revit</span>
+                <span class="tag">V-Ray</span>
+                <span class="tag">Detailed Tectonics</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Amy Yi Mei Li · Architecture Portfolio · Built on Cloudflare Pages</p>
+    </footer>
+  </div>
+
+</body>
+</html>
