@@ -118,7 +118,7 @@
 
     header.hero h2 {
       font-size: 1.25rem;
-      font-weight: 700; /* Bolded as requested */
+      font-weight: 700;
       color: var(--text-main);
       margin-bottom: 16px;
     }
@@ -283,286 +283,39 @@
       color: var(--text-main);
     }
 
-    /* Contact Details Block */
-    .contact-info-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 40px;
-      border-radius: 8px;
-      max-width: 600px;
-      margin-top: 20px;
+    /* Detailed Project Page Styles */
+    .project-header-section {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 30px;
     }
 
-    .contact-info-card h3 {
-      margin-bottom: 16px;
-      font-size: 1.4rem;
-    }
-
-    .contact-item {
+    .project-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: -6px;
       margin-bottom: 16px;
     }
 
-    .contact-item span {
-      display: block;
+    .project-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      background: #f4f4f4;
+      padding: 24px;
+      border-radius: 6px;
+      margin-bottom: 40px;
+    }
+
+    .detail-item h4 {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-muted);
+      margin-bottom: 4px;
     }
 
-    .contact-item a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      header.hero h1 { font-size: 2rem; }
-      .year-header { flex-direction: column; gap: 4px; }
-      nav ul { gap: 12px; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Sticky Nav -->
-  <nav>
-    <a href="#home" class="brand" onclick="showPage('home-view')">AMY YI MEI LI</a>
-    <ul>
-      <li><a href="#year3" onclick="scrollToYear('year3')">Year 03</a></li>
-      <li><a href="#year2" onclick="scrollToYear('year2')">Year 02</a></li>
-      <li><a href="#year1" onclick="scrollToYear('year1')">Year 01</a></li>
-      <li><a href="#contact" onclick="showPage('contact-view')" class="contact-nav-btn">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    
-    <!-- MAIN HOME PAGE VIEW -->
-    <div id="home-view" class="view-page active">
-      <header class="hero">
-        <p class="tagline">DESIGN · SPACE · PLACE</p>
-        <h1>Amy Li - Architecture Portfolio</h1>
-        <h2>Exploring architecture through ideas, drawings and making.</h2>
-        <p class="bio">BA (Hons) Architecture | First-Class Honours | University of Portsmouth</p>
-      </header>
-
-      <main class="timeline">
-        
-        <!-- YEAR 3 (FIRST / HEADLINE) -->
-        <section id="year3" class="year-block">
-          <div class="year-header">
-            <span class="year-number">03</span>
-            <span class="year-title">Year Three — Comprehensive Thesis & Tectonics</span>
-          </div>
-          <div class="project-grid">
-            <article class="project-card" onclick="showPage('project-major')" style="cursor: pointer;">
-              <div class="image-placeholder">Major Project Hero Render</div>
-              <div class="project-info">
-                <p class="project-meta">Project 05 · BA Capstone</p>
-                <h3>Major Project</h3>
-                <p>Comprehensive design project integrating urban retrofit strategies, environmental systems, and detailed tectonic wall sections.</p>
-                <div class="project-tags">
-                  <span class="tag">Revit</span>
-                  <span class="tag">Detailed Tectonics</span>
-                  <span class="tag">Environmental Strategy</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- YEAR 2 -->
-        <section id="year2" class="year-block">
-          <div class="year-header">
-            <span class="year-number">02</span>
-            <span class="year-title">Year Two — Context, Narrative & Innovation</span>
-          </div>
-          <div class="project-grid">
-            
-            <article class="project-card award-card" onclick="showPage('project-thematic')" style="cursor: pointer;">
-              <div class="image-placeholder">Award Winning Project Render</div>
-              <div class="project-info">
-                <span class="award-badge">★ Award-Winning Project</span>
-                <p class="project-meta">Project 04 · Advanced Design Studio</p>
-                <h3>Thematic Design</h3>
-                <p>An award-winning architectural inquiry exploring material innovation, spatial perception, and contextual response.</p>
-                <div class="project-tags">
-                  <span class="tag">Award Winner</span>
-                  <span class="tag">Rhino</span>
-                  <span class="tag">Material Research</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card" onclick="showPage('project-narrative')" style="cursor: pointer;">
-              <div class="image-placeholder">Design Narrative Visual</div>
-              <div class="project-info">
-                <p class="project-meta">Project 03 · Site & Urban Context</p>
-                <h3>Design Narrative</h3>
-                <p>Developing a strong architectural story driven by site history, human movement, and atmospheric qualities.</p>
-                <div class="project-tags">
-                  <span class="tag">Site Analysis</span>
-                  <span class="tag">Atmospheric Renders</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card" onclick="showPage('project-investigation')" style="cursor: pointer;">
-              <div class="image-placeholder">Investigation Drawings</div>
-              <div class="project-info">
-                <p class="project-meta">Project 02 · Typological Research</p>
-                <h3>Design Investigation</h3>
-                <p>Analytical study of structural typologies, program distribution, and spatial flow in urban settings.</p>
-                <div class="project-tags">
-                  <span class="tag">Diagrams</span>
-                  <span class="tag">Mapping</span>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- YEAR 1 -->
-        <section id="year1" class="year-block">
-          <div class="year-header">
-            <span class="year-number">01</span>
-            <span class="year-title">Year One — Foundations & Craft</span>
-          </div>
-          <div class="project-grid">
-
-            <article class="project-card" onclick="showPage('project-application')" style="cursor: pointer;">
-              <div class="image-placeholder">Design Application Plans</div>
-              <div class="project-info">
-                <p class="project-meta">Project 01B · Spatial Synthesis</p>
-                <h3>Design Application</h3>
-                <p>Translating conceptual spatial ideas into functional architectural drawings, scale models, and small-scale interventions.</p>
-                <div class="project-tags">
-                  <span class="tag">AutoCAD</span>
-                  <span class="tag">Model Making</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card" onclick="showPage('project-exploration')" style="cursor: pointer;">
-              <div class="image-placeholder">Form & Sketch Studies</div>
-              <div class="project-info">
-                <p class="project-meta">Project 01A · Abstract Form</p>
-                <h3>Design Exploration</h3>
-                <p>Foundational investigations of light, shadow, scale, and joinery through physical craft and analytical sketching.</p>
-                <div class="project-tags">
-                  <span class="tag">Hand Sketching</span>
-                  <span class="tag">Concept Modeling</span>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-      </main>
-    </div>
-
-    <!-- CONTACT VIEW -->
-    <div id="contact-view" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Get in Touch</h2>
-      <p class="bio">I am available for Part 1 Architectural Assistant opportunities, collaborations, and inquiries.</p>
-      
-      <div class="contact-info-card">
-        <h3>Contact Details</h3>
-        <div class="contact-item">
-          <span>Email</span>
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
-        </div>
-        <div class="contact-item">
-          <span>LinkedIn</span>
-          <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/amy-yi-mei-li</a>
-        </div>
-        <div class="contact-item">
-          <span>Location</span>
-          <p style="color: var(--text-main); font-weight: 500;">Portsmouth / London, UK</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- INDIVIDUAL PROJECT DETAIL PAGES (PLACEHOLDERS) -->
-    
-    <div id="project-major" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 03: Major Project</h2>
-      <p class="bio">Comprehensive design project description, drawings, and tectonic details go here.</p>
-    </div>
-
-    <div id="project-thematic" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <span class="award-badge">★ Award-Winning Project</span>
-      <h2>Year 02: Thematic Design</h2>
-      <p class="bio">Award-winning project design story, research, models, and visuals go here.</p>
-    </div>
-
-    <div id="project-narrative" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 02: Design Narrative</h2>
-      <p class="bio">Narrative development, site analysis, and conceptual diagrams go here.</p>
-    </div>
-
-    <div id="project-investigation" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 02: Design Investigation</h2>
-      <p class="bio">Typological analytical drawings and spatial mapping go here.</p>
-    </div>
-
-    <div id="project-application" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 01: Design Application</h2>
-      <p class="bio">Scale plans, section drawings, and physical joinery models go here.</p>
-    </div>
-
-    <div id="project-exploration" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 01: Design Exploration</h2>
-      <p class="bio">Hand sketches, light/shadow studies, and early physical models go here.</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>© 2026 Amy Yi Mei Li · Architecture Portfolio · Built on Cloudflare</p>
-    </footer>
-
-  </div>
-
-  <script>
-    function showPage(pageId) {
-      document.querySelectorAll('.view-page').forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-      window.scrollTo(0, 0);
-    }
-
-    function scrollToYear(yearId) {
-      showPage('home-view');
-      setTimeout(() => {
-        const el = document.getElementById(yearId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 50);
-    }
-  </script>
-</body>
-</html>
+    .detail-item p {
+      font-size: 0.95rem;
+      font-weight: 500
