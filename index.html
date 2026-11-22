@@ -331,10 +331,182 @@
       font-size: 0.85rem;
     }
 
+
+    /* Editorial project detail pages */
+    .project-detail {
+      padding: 34px 0 70px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .project-detail .back-btn {
+      margin-bottom: 34px;
+    }
+
+    .detail-kicker {
+      color: var(--text-muted);
+      font-size: .75rem;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .detail-title {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      font-weight: 400;
+      max-width: 800px;
+      margin-bottom: 18px;
+    }
+
+    .detail-intro {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .detail-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 18px 0;
+      margin: 28px 0 34px;
+    }
+
+    .detail-meta span {
+      display: block;
+      color: var(--text-muted);
+      font-size: .68rem;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .detail-meta strong {
+      font-size: .92rem;
+      font-weight: 500;
+    }
+
+    .detail-hero {
+      width: 100%;
+      min-height: 280px;
+      max-height: 620px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: #e9e4dc;
+      margin-bottom: 54px;
+    }
+
+    .detail-section {
+      margin: 0 0 54px;
+    }
+
+    .detail-section h3 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .detail-section p {
+      max-width: 720px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .detail-section .section-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .7rem;
+      margin-bottom: 9px;
+    }
+
+    .detail-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .detail-gallery.single {
+      grid-template-columns: 1fr;
+    }
+
+    .detail-gallery img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      background: #e9e4dc;
+      aspect-ratio: 4 / 3;
+    }
+
+    .detail-gallery .wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery-placeholder {
+      min-height: 220px;
+      aspect-ratio: 4 / 3;
+      background: #eeeae3;
+      border: 1px dashed #c9c1b5;
+      color: #766f65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-size: .82rem;
+      letter-spacing: .4px;
+    }
+
+    .gallery-placeholder.wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 9;
+    }
+
+    .detail-navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+      margin-top: 60px;
+    }
+
+    .detail-navigation a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: .85rem;
+    }
+
+    .detail-navigation a:hover {
+      text-decoration: underline;
+    }
+
+    .detail-navigation .next {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .detail-meta { grid-template-columns: 1fr; gap: 12px; }
+      .detail-gallery { grid-template-columns: 1fr; }
+      .detail-gallery .wide, .gallery-placeholder.wide { grid-column: auto; }
+      .detail-title { letter-spacing: -1px; }
+      .detail-navigation { font-size: .8rem; }
+    }
+
     @media (max-width: 600px) {
       header.hero h1 { font-size: 2rem; }
       .year-header { flex-direction: column; gap: 4px; }
       nav ul { gap: 12px; }
+      nav ul a { font-size: .7rem; }
     }
   </style>
 </head>
@@ -502,44 +674,139 @@
       </div>
     </div>
 
-    <!-- INDIVIDUAL PROJECT DETAIL PAGES (PLACEHOLDERS) -->
-    
-    <div id="project-major" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 03: Major Project</h2>
-      <p class="bio">Comprehensive design project description, drawings, and tectonic details go here.</p>
-    </div>
 
-    <div id="project-thematic" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
+    <!-- INDIVIDUAL PROJECT DETAIL PAGES -->
+    <!-- Replace each gallery-placeholder with an image:
+         <img src="images/projects/your-image.jpg" alt="Description of image">
+         Keep image files inside your website's images/projects folder. -->
+
+    <article id="project-major" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 03 · Project 05 · BA Capstone</p>
+      <h2 class="detail-title">Major Project</h2>
+      <p class="detail-intro">A comprehensive design project bringing together urban retrofit strategies, environmental systems and detailed tectonic thinking.</p>
+      <div class="detail-meta">
+        <div><span>Year</span><strong>Year Three</strong></div>
+        <div><span>Project type</span><strong>BA Capstone</strong></div>
+        <div><span>Focus</span><strong>Architecture & Tectonics</strong></div>
+      </div>
+      <img class="detail-hero" src="images/Year%203%20-%20Cover.png" alt="Major Project cover image">
+      <section class="detail-section">
+        <p class="section-label">01 / Overview</p>
+        <h3>Project Overview</h3>
+        <p>Introduce the brief, the site and the central architectural question. Explain what the project set out to achieve and the key challenge that informed your design response.</p>
+      </section>
+      <section class="detail-section">
+        <p class="section-label">02 / Research & Development</p>
+        <h3>Research, Context & Concept</h3>
+        <p>Use this section to explain your site analysis, precedent studies, environmental research and how these investigations shaped the design direction.</p>
+        <div class="detail-gallery">
+          <div class="gallery-placeholder">Add site analysis / research image</div>
+          <div class="gallery-placeholder">Add concept development image</div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <p class="section-label">03 / Design</p>
+        <h3>Drawings & Spatial Strategy</h3>
+        <p>Show the key plans, sections, elevations and diagrams. Add a short caption explaining what each drawing communicates.</p>
+        <div class="detail-gallery">
+          <div class="gallery-placeholder">Add floor plan</div>
+          <div class="gallery-placeholder">Add section drawing</div>
+          <div class="gallery-placeholder wide">Add main technical / tectonic drawing</div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <p class="section-label">04 / Final Proposal</p>
+        <h3>Final Visuals</h3>
+        <p>Present the final renders, model photographs and important moments of the completed proposal.</p>
+        <div class="detail-gallery">
+          <div class="gallery-placeholder">Add final render</div>
+          <div class="gallery-placeholder">Add model photograph</div>
+        </div>
+      </section>
+      <nav class="detail-navigation">
+        <a href="#project-exploration" onclick="showPage('project-exploration'); return false;">← Previous project</a>
+        <a class="next" href="#project-thematic" onclick="showPage('project-thematic'); return false;">Next project →</a>
+      </nav>
+    </article>
+
+    <article id="project-thematic" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 02 · Project 04 · Advanced Design Studio</p>
       <span class="award-badge">★ Award-Winning Project</span>
-      <h2>Year 02: Thematic Design</h2>
-      <p class="bio">Award-winning project design story, research, models, and visuals go here.</p>
-    </div>
+      <h2 class="detail-title">Thematic Design</h2>
+      <p class="detail-intro">An architectural inquiry exploring material innovation, spatial perception and contextual response.</p>
+      <div class="detail-meta">
+        <div><span>Year</span><strong>Year Two</strong></div>
+        <div><span>Project type</span><strong>Advanced Design Studio</strong></div>
+        <div><span>Focus</span><strong>Material & Space</strong></div>
+      </div>
+      <div class="gallery-placeholder wide detail-hero">Add your strongest Thematic Design render as the hero image</div>
+      <section class="detail-section">
+        <p class="section-label">01 / Overview</p><h3>Project Overview</h3>
+        <p>Describe the project brief, the award and the main architectural idea. Explain what makes the proposal distinctive.</p>
+      </section>
+      <section class="detail-section">
+        <p class="section-label">02 / Investigation</p><h3>Material Research & Development</h3>
+        <p>Show how material tests, precedents and spatial experiments informed the design.</p>
+        <div class="detail-gallery"><div class="gallery-placeholder">Add research / material study</div><div class="gallery-placeholder">Add concept development</div></div>
+      </section>
+      <section class="detail-section">
+        <p class="section-label">03 / Proposal</p><h3>Final Design</h3>
+        <p>Present the final drawings, renders and model photographs with concise captions.</p>
+        <div class="detail-gallery"><div class="gallery-placeholder">Add plan or section</div><div class="gallery-placeholder">Add final render</div><div class="gallery-placeholder wide">Add presentation board or model image</div></div>
+      </section>
+      <nav class="detail-navigation"><a href="#project-major" onclick="showPage('project-major'); return false;">← Previous project</a><a class="next" href="#project-narrative" onclick="showPage('project-narrative'); return false;">Next project →</a></nav>
+    </article>
 
-    <div id="project-narrative" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 02: Design Narrative</h2>
-      <p class="bio">Narrative development, site analysis, and conceptual diagrams go here.</p>
-    </div>
+    <article id="project-narrative" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 02 · Project 03 · Site & Urban Context</p>
+      <h2 class="detail-title">Design Narrative</h2>
+      <p class="detail-intro">An architectural story developed through site history, human movement and atmospheric qualities.</p>
+      <div class="detail-meta"><div><span>Year</span><strong>Year Two</strong></div><div><span>Project type</span><strong>Design Studio</strong></div><div><span>Focus</span><strong>Site & Narrative</strong></div></div>
+      <div class="gallery-placeholder wide detail-hero">Add your Design Narrative hero image</div>
+      <section class="detail-section"><p class="section-label">01 / Context</p><h3>Site & Context</h3><p>Introduce the site, its history and the people or activities that shaped your response.</p><div class="detail-gallery"><div class="gallery-placeholder">Add site photograph</div><div class="gallery-placeholder">Add site analysis</div></div></section>
+      <section class="detail-section"><p class="section-label">02 / Concept</p><h3>Developing the Narrative</h3><p>Explain how your observations became an architectural concept and spatial sequence.</p><div class="detail-gallery"><div class="gallery-placeholder">Add concept sketches</div><div class="gallery-placeholder">Add diagrams</div></div></section>
+      <section class="detail-section"><p class="section-label">03 / Outcome</p><h3>Design Proposal</h3><p>Show the final drawings, atmospheric views and model photographs.</p><div class="detail-gallery"><div class="gallery-placeholder">Add plan / section</div><div class="gallery-placeholder">Add final visual</div></div></section>
+      <nav class="detail-navigation"><a href="#project-thematic" onclick="showPage('project-thematic'); return false;">← Previous project</a><a class="next" href="#project-investigation" onclick="showPage('project-investigation'); return false;">Next project →</a></nav>
+    </article>
 
-    <div id="project-investigation" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 02: Design Investigation</h2>
-      <p class="bio">Typological analytical drawings and spatial mapping go here.</p>
-    </div>
+    <article id="project-investigation" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 02 · Project 02 · Typological Research</p>
+      <h2 class="detail-title">Design Investigation</h2>
+      <p class="detail-intro">An analytical study of structural typologies, programme distribution and spatial flow in urban settings.</p>
+      <div class="detail-meta"><div><span>Year</span><strong>Year Two</strong></div><div><span>Project type</span><strong>Typological Research</strong></div><div><span>Focus</span><strong>Analysis & Mapping</strong></div></div>
+      <div class="gallery-placeholder wide detail-hero">Add your strongest investigation drawing as the hero image</div>
+      <section class="detail-section"><p class="section-label">01 / Research</p><h3>Analytical Research</h3><p>Describe the typology, precedents and research question that guided the investigation.</p><div class="detail-gallery"><div class="gallery-placeholder">Add precedent study</div><div class="gallery-placeholder">Add mapping / analysis</div></div></section>
+      <section class="detail-section"><p class="section-label">02 / Findings</p><h3>Spatial & Structural Findings</h3><p>Explain the key findings and how they are communicated through diagrams and drawings.</p><div class="detail-gallery"><div class="gallery-placeholder">Add analytical diagram</div><div class="gallery-placeholder">Add structural study</div></div></section>
+      <nav class="detail-navigation"><a href="#project-narrative" onclick="showPage('project-narrative'); return false;">← Previous project</a><a class="next" href="#project-application" onclick="showPage('project-application'); return false;">Next project →</a></nav>
+    </article>
 
-    <div id="project-application" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 01: Design Application</h2>
-      <p class="bio">Scale plans, section drawings, and physical joinery models go here.</p>
-    </div>
+    <article id="project-application" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 01 · Project 01B · Spatial Synthesis</p>
+      <h2 class="detail-title">Design Application</h2>
+      <p class="detail-intro">Translating conceptual spatial ideas into functional architectural drawings, scale models and small-scale interventions.</p>
+      <div class="detail-meta"><div><span>Year</span><strong>Year One</strong></div><div><span>Project type</span><strong>Spatial Synthesis</strong></div><div><span>Focus</span><strong>Drawing & Model Making</strong></div></div>
+      <div class="gallery-placeholder wide detail-hero">Add your Design Application hero image</div>
+      <section class="detail-section"><p class="section-label">01 / Development</p><h3>From Concept to Space</h3><p>Explain how your initial ideas were developed into a spatial proposal.</p><div class="detail-gallery"><div class="gallery-placeholder">Add concept sketch</div><div class="gallery-placeholder">Add development model</div></div></section>
+      <section class="detail-section"><p class="section-label">02 / Drawings & Making</p><h3>Plans, Sections & Models</h3><p>Show the technical drawings and physical models that communicate the final design.</p><div class="detail-gallery"><div class="gallery-placeholder">Add floor plan</div><div class="gallery-placeholder">Add section drawing</div><div class="gallery-placeholder wide">Add model photograph</div></div></section>
+      <nav class="detail-navigation"><a href="#project-investigation" onclick="showPage('project-investigation'); return false;">← Previous project</a><a class="next" href="#project-exploration" onclick="showPage('project-exploration'); return false;">Next project →</a></nav>
+    </article>
 
-    <div id="project-exploration" class="view-page">
-      <a class="back-btn" onclick="showPage('home-view')">← Back to Projects</a>
-      <h2>Year 01: Design Exploration</h2>
-      <p class="bio">Hand sketches, light/shadow studies, and early physical models go here.</p>
-    </div>
+    <article id="project-exploration" class="view-page project-detail">
+      <a class="back-btn" href="#home" onclick="showPage('home-view'); return false;">← Back to Projects</a>
+      <p class="detail-kicker">Year 01 · Project 01A · Abstract Form</p>
+      <h2 class="detail-title">Design Exploration</h2>
+      <p class="detail-intro">Foundational investigations of light, shadow, scale and joinery through physical craft and analytical sketching.</p>
+      <div class="detail-meta"><div><span>Year</span><strong>Year One</strong></div><div><span>Project type</span><strong>Abstract Form</strong></div><div><span>Focus</span><strong>Exploration & Craft</strong></div></div>
+      <div class="gallery-placeholder wide detail-hero">Add your Design Exploration hero image</div>
+      <section class="detail-section"><p class="section-label">01 / Experiments</p><h3>Form, Light & Shadow</h3><p>Introduce the initial exercises and explain what you discovered through making and observation.</p><div class="detail-gallery"><div class="gallery-placeholder">Add hand sketches</div><div class="gallery-placeholder">Add light and shadow study</div></div></section>
+      <section class="detail-section"><p class="section-label">02 / Making</p><h3>Material & Model Studies</h3><p>Show the physical experiments, material tests and final outcomes.</p><div class="detail-gallery"><div class="gallery-placeholder">Add material / joinery study</div><div class="gallery-placeholder">Add concept model</div></div></section>
+      <nav class="detail-navigation"><a href="#project-application" onclick="showPage('project-application'); return false;">← Previous project</a><a class="next" href="#project-major" onclick="showPage('project-major'); return false;">Back to first project →</a></nav>
+    </article>
 
     <!-- Footer -->
     <footer>
@@ -549,21 +816,45 @@
   </div>
 
   <script>
-    function showPage(pageId) {
+    function pageIdFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash || hash === 'home') return 'home-view';
+      if (hash === 'contact') return 'contact-view';
+      return document.getElementById(hash) ? hash : 'home-view';
+    }
+
+    function showPage(pageId, updateUrl = true) {
+      const target = document.getElementById(pageId);
+      if (!target) return;
+
       document.querySelectorAll('.view-page').forEach(page => {
         page.classList.remove('active');
       });
-      document.getElementById(pageId).classList.add('active');
-      window.scrollTo(0, 0);
+      target.classList.add('active');
+
+      if (updateUrl) {
+        const hash = pageId === 'home-view' ? 'home' :
+                     pageId === 'contact-view' ? 'contact' : pageId;
+        if (window.location.hash !== '#' + hash) {
+          history.pushState({ pageId }, '', '#' + hash);
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     function scrollToYear(yearId) {
       showPage('home-view');
       setTimeout(() => {
         const el = document.getElementById(yearId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     }
+
+    // Support direct project links, refreshes and the browser back/forward buttons.
+    window.addEventListener('popstate', () => showPage(pageIdFromHash(), false));
+    window.addEventListener('hashchange', () => showPage(pageIdFromHash(), false));
+    document.addEventListener('DOMContentLoaded', () => showPage(pageIdFromHash(), false));
+    showPage(pageIdFromHash(), false);
   </script>
 </body>
 </html>
