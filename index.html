@@ -27,41 +27,19 @@
    CONTENT PROTECTION
    ===================================== */
 
-/* Prevent visitors selecting or highlighting text */
-body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Prevent images from being dragged */
+/* Prevent images from being dragged or selected */
 img {
     -webkit-user-drag: none;
     user-drag: none;
     -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
 }
 
-/* Prevent selection of image content */
+/* Prevent image selection highlighting */
 img::selection {
     background: transparent;
 }
-    <script>
-/* Prevent right-click on images */
-document.addEventListener('contextmenu', function(e) {
-    if (e.target.closest('img')) {
-        e.preventDefault();
-    }
-});
-
-/* Prevent dragging images */
-document.addEventListener('dragstart', function(e) {
-    if (e.target.closest('img')) {
-        e.preventDefault();
-    }
-});
-</script>
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
