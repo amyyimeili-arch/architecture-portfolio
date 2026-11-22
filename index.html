@@ -24,36 +24,30 @@
     }
 
     /* =====================================
-   CONTENT PROTECTION
-   ===================================== */
+   IMAGE PROTECTION
+===================================== */
 
-/* Prevent images from being dragged or selected */
+/* Prevent image dragging and selection */
 img {
     -webkit-user-drag: none;
-    user-drag: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
 }
 
-/* Prevent image selection highlighting */
-img::selection {
-    background: transparent;
-}
-    /* IMAGE PROTECTION */
-img {
+/* Prevent selection on project images */
+.project-card img,
+.detail-gallery img,
+.detail-hero {
     -webkit-user-drag: none;
     user-select: none;
-    -webkit-user-select: none;
-    pointer-events: none;
 }
 
-/* Prevent image dragging */
-.project-card,
-.detail-gallery,
-.project-detail {
-    -webkit-user-select: none;
+/* Prevent text selection on image containers */
+.image-placeholder,
+.gallery-placeholder {
     user-select: none;
+    -webkit-user-select: none;
 }
     
     body {
