@@ -136,6 +136,7 @@
 
     .year-block {
       margin-bottom: 80px;
+      scroll-margin-top: 90px;
     }
 
     .year-header {
@@ -516,9 +517,9 @@
   <nav>
     <a href="#home" class="brand" onclick="showPage('home-view')">AMY YI MEI LI</a>
     <ul>
-      <li><a href="#year3" onclick="scrollToYear('year3')">Year 03</a></li>
-      <li><a href="#year2" onclick="scrollToYear('year2')">Year 02</a></li>
-      <li><a href="#year1" onclick="scrollToYear('year1')">Year 01</a></li>
+      <li><a href="#year3" onclick="scrollToYear('year3'); return false;">Year 03</a></li>
+      <li><a href="#year2" onclick="scrollToYear('year2'); return false;">Year 02</a></li>
+      <li><a href="#year1" onclick="scrollToYear('year1'); return false;">Year 01</a></li>
       <li><a href="#contact" onclick="showPage('contact-view')" class="contact-nav-btn">Contact</a></li>
     </ul>
   </nav>
@@ -818,7 +819,9 @@
   <script>
     function pageIdFromHash() {
       const hash = window.location.hash.replace('#', '');
-      if (!hash || hash === 'home') return 'home-view';
+      if (!hash || hash === 'home' || ['year3', 'year2', 'year1'].includes(hash)) {
+        return 'home-view';
+      }
       if (hash === 'contact') return 'contact-view';
       return document.getElementById(hash) ? hash : 'home-view';
     }
@@ -839,22 +842,43 @@
           history.pushState({ pageId }, '', '#' + hash);
         }
       }
+
+      // Reset the scroll position when changing between actual pages.
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
-    function scrollToYear(yearId) {
-      showPage('home-view');
-      setTimeout(() => {
-        const el = document.getElementById(yearId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
+    function scrollToYear(yearId, updateUrl = true) {
+      // Year sections live inside the homepage; they are not separate pages.
+      showPage('home-view', false);
+
+      if (updateUrl && window.location.hash !== '#' + yearId) {
+        history.pushState({ pageId: 'home-view', sectionId: yearId }, '', '#' + yearId);
+      }
+
+      // Wait for the homepage to become visible before scrolling to its section.
+      requestAnimationFrame(() => {
+        const section = document.getElementById(yearId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     }
 
-    // Support direct project links, refreshes and the browser back/forward buttons.
-    window.addEventListener('popstate', () => showPage(pageIdFromHash(), false));
-    window.addEventListener('hashchange', () => showPage(pageIdFromHash(), false));
-    document.addEventListener('DOMContentLoaded', () => showPage(pageIdFromHash(), false));
-    showPage(pageIdFromHash(), false);
+    function handleNavigationFromHash() {
+      const hash = window.location.hash.replace('#', '');
+
+      if (['year3', 'year2', 'year1'].includes(hash)) {
+        scrollToYear(hash, false);
+      } else {
+        showPage(pageIdFromHash(), false);
+      }
+    }
+
+    // Support direct links, refreshes and browser back/forward navigation.
+    window.addEventListener('popstate', handleNavigationFromHash);
+    window.addEventListener('hashchange', handleNavigationFromHash);
+    document.addEventListener('DOMContentLoaded', handleNavigationFromHash);
+    handleNavigationFromHash();
   </script>
 </body>
 </html>
