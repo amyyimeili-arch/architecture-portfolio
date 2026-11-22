@@ -23,6 +23,30 @@
       padding: 0;
     }
 
+    /* =====================================
+   CONTENT PROTECTION
+   ===================================== */
+
+/* Prevent visitors selecting or highlighting text */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Prevent images from being dragged */
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Prevent selection of image content */
+img::selection {
+    background: transparent;
+}
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
