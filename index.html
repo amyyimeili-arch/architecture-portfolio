@@ -23,40 +23,31 @@
       padding: 0;
     }
 
-    
-/* =====================================
-   DESKTOP & MOBILE CONTENT PROTECTION
+    /* =====================================
+   IMAGE PROTECTION
 ===================================== */
 
-/* Prevent text selection across the website */
-body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-/* Prevent image dragging and long-press menus */
+/* Prevent image dragging and selection */
 img {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    -webkit-touch-callout: none;
 }
 
-/* Protect project content */
-.project-card,
-.project-detail,
-.detail-gallery,
-.detail-section,
-.gallery-placeholder,
-.image-placeholder {
-    -webkit-user-select: none;
-    -moz-user-select: none;
+/* Prevent selection on project images */
+.project-card img,
+.detail-gallery img,
+.detail-hero {
+    -webkit-user-drag: none;
     user-select: none;
-    -webkit-touch-callout: none;
+}
+
+/* Prevent text selection on image containers */
+.image-placeholder,
+.gallery-placeholder {
+    user-select: none;
+    -webkit-user-select: none;
 }
     
 /* =====================================
