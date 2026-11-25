@@ -22,7 +22,43 @@
       margin: 0;
       padding: 0;
     }
-   
+
+    
+/* =====================================
+   DESKTOP & MOBILE CONTENT PROTECTION
+===================================== */
+
+/* Prevent text selection across the website */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Prevent image dragging and long-press menus */
+img {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Protect project content */
+.project-card,
+.project-detail,
+.detail-gallery,
+.detail-section,
+.gallery-placeholder,
+.image-placeholder {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+    
 /* =====================================
    DESKTOP & MOBILE CONTENT PROTECTION
 ===================================== */
