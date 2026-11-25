@@ -24,67 +24,29 @@
     }
 
     /* =====================================
-   IMAGE PROTECTION
-===================================== */
+       /* =====================================
+       CONTENT PROTECTION — DESKTOP & MOBILE
+    ===================================== */
 
-/* Prevent image dragging and selection */
-img {
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
+    /* Discourage selecting or copying page text */
+    body,
+    body * {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none;
+    }
 
-/* Prevent selection on project images */
-.project-card img,
-.detail-gallery img,
-.detail-hero {
-    -webkit-user-drag: none;
-    user-select: none;
-}
+    /* Discourage dragging or selecting images */
+    img {
+      -webkit-user-drag: none !important;
+      user-drag: none;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none;
+    }
 
-/* Prevent text selection on image containers */
-.image-placeholder,
-.gallery-placeholder {
-    user-select: none;
-    -webkit-user-select: none;
-}
-    
-/* =====================================
-   DESKTOP & MOBILE CONTENT PROTECTION
-===================================== */
-
-/* Prevent text selection across the website */
-body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-/* Prevent image dragging and long-press menus */
-img {
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-/* Protect project content */
-.project-card,
-.project-detail,
-.detail-gallery,
-.detail-section,
-.gallery-placeholder,
-.image-placeholder {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-    
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
@@ -1040,6 +1002,45 @@ img {
     window.addEventListener('hashchange', handleNavigationFromHash);
     document.addEventListener('DOMContentLoaded', handleNavigationFromHash);
     handleNavigationFromHash();
+
+    /* =====================================
+       COPY PROTECTION — DESKTOP & MOBILE
+    ===================================== */
+
+    // Block right-click / long-press context menus
+    document.addEventListener('contextmenu', function (event) {
+      event.preventDefault();
+    }, true);
+
+    // Block selecting text or dragging page content
+    document.addEventListener('selectstart', function (event) {
+      event.preventDefault();
+    }, true);
+
+    document.addEventListener('dragstart', function (event) {
+      event.preventDefault();
+    }, true);
+
+    // Block copy and cut events
+    document.addEventListener('copy', function (event) {
+      event.preventDefault();
+    }, true);
+
+    document.addEventListener('cut', function (event) {
+      event.preventDefault();
+    }, true);
+
+    // Block common desktop copy/save/print/source shortcuts
+    document.addEventListener('keydown', function (event) {
+      const key = event.key.toLowerCase();
+      const modifier = event.ctrlKey || event.metaKey;
+
+      if (modifier && ['c', 'x', 'a', 's', 'u', 'p'].includes(key)) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
+
   </script>
 </body>
 </html>
